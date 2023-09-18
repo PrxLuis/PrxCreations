@@ -1,0 +1,596 @@
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&family=Montserrat+Alternates&display=swap");
+:root {
+  /* Colors Prx Creations */
+  --main-color: #F11A7B;
+  --secondary-color: #000000;
+  --monteCarlo-font: "MonteCarlo", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+main {
+  font-family: var(--monteCarlo-font);
+}
+
+header {
+  width: 100%;
+  height: 6rem;
+  background-color: var(--secondary-color);
+  position: sticky;
+  top: -1px;
+  z-index: 100;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+header nav {
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  background-color: var(--secondary-color);
+  margin: 0 auto;
+  align-items: center;
+}
+header nav .nav__logo-container {
+  width: 150px;
+  height: 50px;
+  grid-column: 1/1;
+  grid-row: 1/1;
+}
+header nav .nav__logo-container img {
+  width: 100%;
+  height: auto;
+}
+header nav .navigation {
+  display: none;
+  background-color: var(--secondary-color);
+  z-index: 100;
+}
+header nav .navigation li {
+  list-style: none;
+}
+header nav .navigation li a {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  margin: 10px 0;
+  font-size: 2.5rem;
+  background-image: linear-gradient(270deg, #F11A7B 0.81%, #000000 100%);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
+  padding-bottom: 3px;
+}
+header nav .navigation li a:hover, header nav .navigation li a:focus {
+  background-size: 100% 2px;
+}
+header nav .navigation.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 101;
+}
+header nav .toggle {
+  position: relative;
+  width: 32px;
+  height: 40px;
+  display: flex;
+  justify-self: flex-end;
+  align-items: center;
+  z-index: 100000;
+  cursor: pointer;
+}
+header nav .toggle::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 0 #fff;
+  transition: 0.25s;
+}
+header nav .toggle::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transform: translateY(10px);
+  transition: 0.25s;
+}
+header nav .toggle.active {
+  right: 10%;
+}
+header nav .toggle.active::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 #fff;
+}
+header nav .toggle.active::after {
+  transform: translateY(0px) rotate(-45deg);
+}
+
+.main__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80rem;
+  height: 100vh;
+}
+.main__section .main__section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+.main__section .main__section-container .main__title p {
+  color: white;
+  font-size: 5rem;
+  text-align: center;
+  line-height: 6.25rem;
+}
+.main__section .main__section-container .main__title p span {
+  font-size: 8rem;
+  line-height: 8.5rem;
+}
+.main__section .main__section-container .main__nameXV p {
+  color: white;
+  font-size: 8rem;
+  line-height: 8.5rem;
+  text-align: center;
+}
+.main__section .main__section-container .main__nameXV .audio__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__section .main__section-container .main__nameXV .audio__container .title-sound {
+  font-size: 3rem;
+  line-height: normal;
+  padding-right: 1rem;
+}
+.main__section .main__section-container .main__nameXV .audio__container #play-button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 6rem;
+  background: linear-gradient(90deg, #000 0%, #F11A7B 100%);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main__section .main__section-container .main__nameXV .audio__container #play-button ion-icon {
+  font-size: 3rem;
+  color: white;
+}
+.main__section .background-main {
+  position: absolute;
+  width: 100%;
+  min-height: 80rem;
+  height: 100vh;
+  flex-shrink: 0;
+  background: url("../assets/images/pexels-eduardo-barrientos-15672995.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 40% 50%;
+  z-index: -1;
+}
+.main__section .filter-main {
+  position: absolute;
+  width: 100%;
+  min-height: 80rem;
+  height: 100vh;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.faltan__section {
+  min-height: 15rem;
+  width: 100%;
+}
+.faltan__section .time-part {
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.faltan__section .time-part .square-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+.faltan__section .time-part .square-container .square-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #D9D9D9;
+  min-width: 7rem;
+}
+.faltan__section .time-part .square-container .square-time span {
+  font-size: 3rem;
+  color: black;
+}
+.faltan__section .time-part .square-container .square-time p {
+  font-size: 2rem;
+  color: black;
+}
+
+.wait__section {
+  width: 100%;
+  height: 100%;
+}
+.wait__section .textInvitation__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.wait__section .textInvitation__container p {
+  text-align: center;
+  font-size: 3.5rem;
+}
+.wait__section .textInvitation__container p:nth-child(2) {
+  font-size: 3rem;
+  color: #514D4D;
+}
+.wait__section .textInvitation__container p:nth-child(4) {
+  font-size: 3rem;
+  color: #514D4D;
+}
+.wait__section .textInvitation__container .map__section {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wait__section .textInvitation__container .map__section .map__container {
+  width: 95%;
+  height: 300px;
+  padding: 20px 0;
+}
+.wait__section .textInvitation__container .map__section .map__container #map {
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.wait__section .textInvitation__container .btn-ubicacion {
+  border-radius: 1rem;
+  border: none;
+  background: linear-gradient(90deg, #000 0%, #F11A7B 100%);
+  width: 13rem;
+  height: 5rem;
+}
+.wait__section .textInvitation__container .btn-ubicacion ion-icon {
+  color: white;
+  font-size: 2.5rem;
+}
+.wait__section .textInvitation__container .btn-ubicacion span {
+  color: white;
+  font-family: var(--monteCarlo-font);
+  font-size: 3rem;
+}
+.wait__section .imgAlone__container {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wait__section .imgAlone__container img {
+  width: auto;
+  height: 25rem;
+  border-radius: 1rem;
+}
+
+.itineraio__section .itinerario-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3rem;
+}
+.itineraio__section .itinerario-container .box-itinerario {
+  grid-column: 1/span 2;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  height: auto;
+  border: 2px solid transparent;
+  -o-border-image: linear-gradient(to right, #000 0%, #F11A7B 100%) 1;
+     border-image: linear-gradient(to right, #000 0%, #F11A7B 100%) 1;
+}
+.itineraio__section .itinerario-container .box-itinerario .title {
+  font-size: 4rem;
+  text-align: center;
+}
+.itineraio__section .itinerario-container .box-itinerario .hour {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.itineraio__section .itinerario-container .box-itinerario .location {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.mesaRegalos__section .mesaRegalos__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.mesaRegalos__section .mesaRegalos__container .textGift {
+  font-size: 2.5rem;
+}
+.mesaRegalos__section .mesaRegalos__container .textGift p {
+  text-align: center;
+}
+.mesaRegalos__section .mesaRegalos__container .cuenta-bbva {
+  font-size: 2.5rem;
+}
+.mesaRegalos__section .mesaRegalos__container .cuenta-bbva p {
+  text-align: center;
+  line-height: 3rem;
+}
+
+.codigoVestimenta__section .codigoVestimenta__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.codigoVestimenta__section .codigoVestimenta__container .img-codigoVestimenta {
+  justify-self: center;
+  width: 60%;
+}
+.codigoVestimenta__section .codigoVestimenta__container .img-codigoVestimenta img {
+  width: 100%;
+}
+.codigoVestimenta__section .codigoVestimenta__container .parrafo-codigoVestimenta p {
+  font-size: 3rem;
+}
+
+.swipper__section {
+  width: 100%;
+  min-height: 8rem;
+}
+.swipper__section .swiper {
+  width: 80%;
+}
+.swipper__section .swiper .swiper-wrapper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swipper__section .swiper .swiper-wrapper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 250px;
+  height: 350px;
+}
+.swipper__section .swiper .swiper-wrapper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.swipper__section .swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.swipper__section .swiper .swiper-pagination-bullet-active {
+  background: linear-gradient(90deg, #000 0%, #F11A7B 100%);
+  width: 30px;
+  height: 10px;
+  border-radius: 0.5rem;
+}
+
+.hashtag__section .hashtag__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hashtag__section .hashtag__container .hashtag-text p {
+  font-size: 3.5rem;
+  text-align: center;
+  color: #514D4D;
+}
+.hashtag__section .hashtag__container .hashtag-hashtag p {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #514D4D;
+}
+
+.form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 0;
+}
+.form-section .form__container form {
+  background-color: white;
+  padding: 10px 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+}
+.form-section .form__container form .input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.form-section .form__container form .title-form {
+  color: black;
+  font-size: 2.4rem;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+.form-section .form__container form label {
+  color: black;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.form-section .form__container form input, .form-section .form__container form textarea {
+  padding: 17px 25px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  background: #FFC3DE;
+  border: 2px solid #fdb0d2;
+  outline: none;
+  font-family: var(--monteCarlo-font);
+  text-align: center;
+}
+.form-section .form__container form input::-moz-placeholder, .form-section .form__container form textarea::-moz-placeholder {
+  color: #533240;
+}
+.form-section .form__container form input::placeholder, .form-section .form__container form textarea::placeholder {
+  color: #533240;
+}
+.form-section .form__container form .form-txt {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.form-section .form__container form .form-txt a {
+  color: #F11A7B;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.form-section .form__container form .btn {
+  font-size: 1.6rem;
+  color: #FFFFFF;
+  border: 0;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #F11A7B 0%, #000 100%);
+  box-shadow: 15px 15px 15px 0px rgba(0, 0, 0, 0.25) inset;
+  cursor: pointer;
+  /* &:hover {
+      // background-color: #51D94C;
+  } */
+}
+.form-section .thx__container {
+  padding-top: 2rem;
+}
+.form-section .thx__container p {
+  font-size: 3rem;
+}
+
+.footer__section {
+  width: 100%;
+  background-color: #000;
+}
+.footer__section .logo__container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.footer__section .logo__container img {
+  width: 180px;
+  justify-self: center;
+}
+.footer__section .redes__container {
+  padding-bottom: 30px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.footer__section .redes__container ion-icon {
+  margin: 10px;
+  font-size: 30px;
+}
+.footer__section .redes__container .facebook {
+  color: #3B5998;
+}
+.footer__section .redes__container .whatsapp {
+  color: #25D366;
+}
+.footer__section .redes__container .instagram {
+  color: #F11A7B;
+}
+
+.titles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 0;
+}
+.titles-container .h2-titles {
+  font-size: 5rem;
+  font-weight: 400;
+  text-align: center;
+  height: 7rem;
+}
+.titles-container .line-blackToPink {
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(270deg, #F11A7B 0.81%, #000 100%);
+}
+
+/* Scroll Up */
+.scrollup {
+  position: fixed;
+  background-color: #000;
+  border: 1px solid white;
+  right: 1rem;
+  bottom: -40%;
+  display: inline-flex;
+  padding: 0.3rem;
+  border-radius: 50%;
+  z-index: 100;
+  opacity: 0.8;
+  transition: 0.4s;
+}
+.scrollup ion-icon {
+  font-size: 30px;
+  color: white;
+}
+.scrollup:hover {
+  background-color: black;
+  opacity: 1;
+}
+
+.show-scroll {
+  z-index: 99;
+  bottom: 3rem;
+  right: 1rem;
+}/*# sourceMappingURL=styles.css.map */
